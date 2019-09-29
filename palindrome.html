@@ -1,13 +1,22 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html>
   <head>
     <meta charset="utf-8">
     <title>Palindrome Tester</title>
-    <script src="bundle.js" charset="utf-8"></script>
+    <script src="bundle.js"></script>
   </head>
   <body>
-    <h1>This Is a Palindrome Tester</h1>
-    <button id="palindromeTestButton">This is a palindrome tester.</button>
-    <p id="palindromeResultsParagraph"></p>
+    <h1>Palindrome Tester</h1>
+
+    <form id="palindromeTestForm">
+      <textarea name="palindromeTestText" rows="15" cols="50"></textarea>
+      <br>
+      <button type="submit">Check to see if this is a palindrome.</button>
+    </form>
+
+    <h2>Result</h2>
+
+    <p id="palindromeResult"></p>
+
   </body>
 </html>

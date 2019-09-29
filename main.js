@@ -1,21 +1,22 @@
 const Phrase = require('kyleharv-Palindrome');
 
-function palindromeTester() {
-  let testString = prompt("Please enter a string to test for palindrome-ness!");
-  let testPhrase = new Phrase(testString);
+function testPalindrome(event) {
+  event.preventDefault();
 
-let palindromeResults = document.querySelector("#palindromeResultsParagraph");
+  let palindromeTestText = new Phrase(event.target.palindromeTestText.value);
+  let palindromeResult = document.querySelector("#palindromeResult");
 
-  if (testPhrase.palindrome()) {
-    palindromeResults.innerHTML = `"<strong>${testPhrase.content}</strong>" is a palindrome!`;
+  if (palindromeTestText.palindrome()) {
+    palindromeResult.innerHTML = `"${palindromeTestText.content}" is a palindrome!`;
   } else {
-    palindromeResults.innerHTML = `"<strong>${testPhrase.content}</strong>" is not a palindrome.`;
+    palindromeResult.innerHTML = `"${palindromeTestText.content}" is not a palindrome.`;
   }
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-  let palindromeButton = document.querySelector("#palindromeTestButton");
-  palindromeButton.addEventListener("click", function() {
-    palindromeTester();
+  let palindromeTestForm = document.querySelector("#palindromeTestForm");
+
+  palindromeTestForm.addEventListener("submit", function() {
+    testPalindrome(event);
   });
 });

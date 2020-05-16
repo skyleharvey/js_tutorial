@@ -1,0 +1,18 @@
+#!/usr/local/bin/node
+
+let fs = require("fs");
+let Phrase = require("kyleharv-palindrome");
+
+let text = fs.readFileSync("phrases.txt", "utf-8");
+let palindromes = [];
+
+text.split("\n").forEach(function(line) {
+  let phrase = new Phrase(line);
+  if (phrase.palindrome()) {
+    palindromes.push("palindrome detected: " + line);
+  }
+});
+
+palindromes = palindromes.join("\n");
+
+fs.writeFileSync("./palindromes.txt", palindromes + "\n", "utf-8");
